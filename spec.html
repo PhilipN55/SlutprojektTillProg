@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spec</title>
+    <link rel="stylesheet" href="spec.css">
+</head>
+<body>
+    <div class="header">        
+        <div class="Husaberg">
+            <a class="Husaberg-text" href="huvudsida.html">Husaberg</a>
+        </div>
+    </div>
+
+    <div class="sides">
+        <div class="left">
+            <label class="specs">
+                <input type="checkbox" data-price="2400">
+                <label class="Label"><span>Graphics Kit +2400kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+
+            <label class="specs">
+                <input type="checkbox" data-price="5000">
+                <label class="Label"><span>FMF exhaust +5000kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+
+            <label class="specs">
+                <input type="checkbox" data-price="1500">
+                <label class="Label"><span>Street tires +1500kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+
+            <label class="specs">
+                <input type="checkbox" data-price="1800">
+                <label class="Label"><span>Cleaning kit +1800kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+
+            <label class="specs">
+                <input type="checkbox" data-price="900">
+                <label class="Label"><span>Extra plastics +900kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+
+            <label class="specs">
+                <input type="checkbox" data-price="1200">
+                <label class="Label"><span>Service kit +1200kr</span></label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+
+        <div class="right">
+            <div class="bikeName"><h2 id="bikeName">T</h2></div>
+            <div class="price">
+                <p>Base price: <span id="basePrice"></span>Kr</p>
+                <h3>Total: <span id="totalPrice"></span>Kr</h3>
+            </div>
+            <h3>contact information</h3>
+            <div class="order">
+                <input type="text" class="input" placeholder="Full name">
+                <input type="email" class="input" placeholder="Email address">
+                <input type="text" class="input" placeholder="Home address">
+                <button class="send">Send Order</button>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+const bikeName = localStorage.getItem("bikeName");
+const basePrice = parseInt(localStorage.getItem("basePrice")) || 0;
+
+document.getElementById("bikeName").textContent = bikeName;
+document.getElementById("basePrice").textContent = basePrice;
+
+const totalPrice = document.getElementById("totalPrice");
+
+function updatePrice() {
+        let total = basePrice;
+        // lägg till pris för varje checkbox till total
+        document.querySelectorAll("input[type='checkbox']").forEach(box => {
+            if (box.checked) {
+                total += parseInt(box.dataset.price);
+            }
+        });
+        totalPrice.textContent = total;
+    }
+    updatePrice();
+
+    // lägg till event listener för varje checkbox
+    document.querySelectorAll("input[type='checkbox']").forEach(box => {
+        box.addEventListener("change", updatePrice);
+    });
+</script>
+
+<script>
+    const sendBtn = document.querySelector(".send");
+    const rightPanel = document.querySelector(".right");
+    const inputs = document.querySelectorAll(".input");
+
+    sendBtn.addEventListener("click", () => {
+
+        rightPanel.classList.add("slide-out");
+
+        // reset 
+        setTimeout(() => {
+            inputs.forEach(input => input.value = "");
+            rightPanel.classList.remove("slide-out");
+        }, 1000); //timer innan reset
+    });
+</script>
+
+</body>
+</html>

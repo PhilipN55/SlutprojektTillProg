@@ -1,0 +1,142 @@
+*{font-family: sans-serif; box-sizing: border-box; }
+body{background-color: rgb(00, 0, 0);margin: 0;}
+p{color: white;}
+a{text-decoration: none; color: white;}
+
+.header{
+    top: 0;
+    background-color: rgba(25, 25, 25, 0.8);
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative
+}
+.Husaberg{
+    color: rgb(229, 231, 235);
+    position: absolute;
+    transform: translateX(50%);
+    right: 50%;
+}
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin-right: 30px;
+}
+
+
+.menu-text{
+    font-size: 24px;
+    margin: 0;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.menu-text p{ margin: 0px;    }
+.menu-text:hover{
+    background-color: rgba(55, 55, 55,0.6);
+    cursor: default;
+}
+.Husaberg-text{
+    font-size: 26px;
+    font-family: serif;
+    text-decoration: none;
+    color: white;
+    z-index: 1;
+    padding: 0;
+}
+.dropdown {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+.dropdown-zone{
+    position: absolute;
+    top: 100%;
+    width: 150px;
+    right: 0;
+    text-align: center;
+}
+
+.dropdown-content {
+    font-size: 25px;
+    display: none;
+    background-color: rgba(25, 25, 25,1);
+    color: white;
+    text-align: center;
+    box-shadow:inset 0 0px 2px rgba(255, 255, 255, 0.222);
+}
+
+
+
+#last_dropdown{
+    border-radius: 0 0 20px 20px;
+    box-shadow:inset 0 -2px 5px rgba(255, 255, 255, 0.122);
+}
+
+.dropdown-content:hover{
+    background-color: rgba(50, 50, 50,0.8);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+    background-color: rgba(25, 25, 25,1);
+    box-shadow:inset 0 0px 2px rgba(255, 255, 255, 0);
+    margin: 0;
+}
+
+.featuredBike{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+.featuredBike P{
+    font-size:  40px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.shadow{margin-top: 70px;}
+.readMore{
+    background-color: blue;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 3px 20px;
+}
+.readMore:hover{
+    opacity: 0.8;
+}
+
+.img2{
+    display: none;
+}
+
+@media (max-width: 650px){
+    .menu-icon {display: flex;}
+    .menu-text {display: none;}
+    .img1{
+        display: none;
+    }
+     .img2{
+        display: block;
+     }
+     .featuredBike P{
+        font-size:  30px;
+     }
+}
+
